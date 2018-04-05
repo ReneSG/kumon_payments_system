@@ -1,0 +1,81 @@
+version: "3.3"
+
+volumes:
+  gems:
+    driver: local
+  postgres_data:
+    driver: local
+
+networks:
+  backend:
+
+services:
+  postgres:
+    image: postgres:9.6 # We'll use the official postgres image.
+    volumes:
+      # Mounts a persistable volume inside the postgres data folder, so we
+      # don't lose the created databases when this container is removed.
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+    environment:
+      # The password we'll use to access the databases:
+      POSTGRES_PASSWORD: s0m3p455
+
+  test:
+    &app
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    # The name our development image will use:
+    image: renesaenz/kumon_payments:development
+    entrypoint: /usr/src/bin/entrypoint-dev
+    volumes:
+      # Mount our app code directory (".") into our app containers at the
+      # "/usr/src" folder:
+      - .:/usr/src
+    depends_on:
+      - postgres
+    networks:
+      - backend
+    volumes:
+      # Mount our app code directory (".") into our app containers at the
+      # "/usr/src" folder:
+      - .:/usr/src
+      # Mount the 'gems' volume on the folder that stores bundled gems:
+      - gems:/usr/local/bundle
+
+    networks:
+      - backend
+
+    # Keep the stdin open, so we can attach to our app container's process
+    # and do things such as byebug, etc:
+    stdin_open: true
+
+    # Enable sending signals (CTRL+C, CTRL+P + CTRL+Q) into the container:
+    tty: true
+
+    depends_on:
+      - postgres
+
+    command: guard
+    environment:
+      &app_env
+      # Notice that this is the DB we'll use:
+      DATABASE_URL: postgres://postgres:s0m3p455@postgres:5432/kumon_payments_testing
+      # We'll use this env variable to make the log output gets directed
+      # to Docker:
+      RAILS_LOG_TO_STDOUT: "true"
+      RAILS_ENV: test
+      RACK_ENV: test
+
+  web:
+    <<: *app
+    command: rails server -p 3000 -b 0.0.0.0
+    ports:
+      - ${KUMON_PAYMENTS_WEB_PORT:-3000}:3000
+    environment:
+      <<: *app_env
+      DATABASE_URL: postgres://postgres:s0m3p455@postgres:5432/kumon_payments_development
+      RAILS_ENV: development
+      RACK_ENV: development
