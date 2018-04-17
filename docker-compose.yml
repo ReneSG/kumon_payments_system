@@ -79,3 +79,5 @@ services:
       DATABASE_URL: postgres://postgres:s0m3p455@postgres:5432/kumon_payments_development
       RAILS_ENV: development
       RACK_ENV: development
+    depends_on:
+      - postgres
