@@ -1,0 +1,31 @@
+<%= form.fields_for :tutor_attributes, tutor do |builder| %>
+  <%= builder.label :name %>
+  <%= builder.text_field :name %>
+
+  <%= builder.label :relationship %>
+  <%= builder.text_field :relationship %>
+
+  <%= builder.label :email %>
+  <%= builder.text_field :email %>
+
+  <%= builder.label :phone %>
+  <%= builder.text_field :phone %>
+
+  <%= builder.label :address_street %>
+  <%= builder.text_field :address_street %>
+
+  <%= builder.label :address_number %>
+  <%= builder.text_field :address_number %>
+
+  <%= builder.label :address_suburb %>
+  <%= builder.text_field :address_suburb %>
+
+  <%= builder.label :address_zipcode %>
+  <%= builder.text_field :address_zipcode %>
+
+  <%= builder.label :address_town %>
+  <%= builder.text_field :address_town %>
+
+  <%= builder.label :address_state %>
+  <%= builder.text_field :address_state %>
+<% end %>
