@@ -1,0 +1,96 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @student.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @student.age %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @student.gender %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @student.school %>
+</p>
+
+<p>
+  <strong>School grade:</strong>
+  <%= @student.school_grade %>
+</p>
+
+<p>
+  <strong>School level:</strong>
+  <%= @student.school_level %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @student.birthday %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @student.active %>
+</p>
+
+<h1>Tutor</h1>
+<p>
+  <strong>Nombre:</strong>
+  <%= @student.tutor.name %>
+</p>
+
+<p>
+  <strong>Relación:</strong>
+  <%= @student.tutor.relationship %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @student.tutor.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @student.tutor.phone %>
+</p>
+
+<p>
+  <strong>Calle:</strong>
+  <%= @student.tutor.address_street %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @student.tutor.address_number %>
+</p>
+
+<p>
+  <strong>Colonia:</strong>
+  <%= @student.tutor.address_suburb %>
+</p>
+
+<p>
+  <strong>Codigo postal:</strong>
+  <%= @student.tutor.address_zipcode %>
+</p>
+
+<p>
+  <strong>Municipio:</strong>
+  <%= @student.tutor.address_town %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @student.tutor.address_street %>
+</p>
+
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
