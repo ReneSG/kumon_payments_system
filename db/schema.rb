@@ -32,14 +32,4 @@ ActiveRecord::Schema.define(version: 20180417201028) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string "name"
-    t.string "age"
-    t.string "sex"
-    t.string "school"
-    t.string "school_grade"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
 end

@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer', platforms: :ruby
 
 gem 'materialize-sass'
+gem 'jquery-rails'
 
 gem 'devise'
 
