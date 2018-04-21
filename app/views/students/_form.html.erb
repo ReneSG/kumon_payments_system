@@ -1,0 +1,60 @@
+<%= form_for @student do |form| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :student_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.text_field :age, id: :student_age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender, id: :student_gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :school %>
+    <%= form.text_field :school, id: :student_school %>
+  </div>
+
+  <div class="field">
+    <%= form.label :school_grade %>
+    <%= form.text_field :school_grade, id: :student_school_grade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :school_level %>
+    <%= form.text_field :school_level, id: :student_school_level %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthday %>
+    <%= form.text_field :birthday, id: :student_birthday %>
+  </div>
+
+    <div class="field">
+    <%= form.label :active %>
+    <%= form.text_field :active, id: :student_birthday %>
+  </div>
+
+  <h1>Tutor</h1>
+ <%= render partial: "tutor_form", locals: { form: form, tutor: @student.build_tutor } %> 
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

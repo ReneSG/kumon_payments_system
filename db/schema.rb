@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417201028) do
+ActiveRecord::Schema.define(version: 20180417202700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,35 @@ ActiveRecord::Schema.define(version: 20180417201028) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "age"
+    t.string "gender"
+    t.string "school"
+    t.string "school_grade"
+    t.string "school_level"
+    t.string "birthday"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tutors", force: :cascade do |t|
+    t.string "name"
+    t.string "relationship"
+    t.string "email"
+    t.string "phone"
+    t.string "address_street"
+    t.string "address_number"
+    t.string "address_suburb"
+    t.string "address_zipcode"
+    t.string "address_town"
+    t.string "address_state"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
