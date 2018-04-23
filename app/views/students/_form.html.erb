@@ -1,3 +1,4 @@
+<%= javascript_include_tag('form_student.js') %>
 <%= form_for @student do |form| %>
   <% if student.errors.any? %>
     <div id="error_explanation">
@@ -11,50 +12,47 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :student_name %>
-  </div>
+  <div class="row">
+    <div class="input-field col s8">
+      <%= form.label "Nombre" %>
+      <%= form.text_field :name, id: :student_name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.text_field :age, id: :student_age %>
+    <div class="input-field col s2">
+      <%= form.label "Género" %>
+      <%= form.text_field :gender, id: :student_gender %>
+    </div>
+    <div class="input-field col s2">
+      <%= form.label "Fecha de Nacimiento" %>
+      <%= form.text_field :birthday, id: :student_birthday, class: "datepicker" %>
+    </div>
   </div>
+  <div class="row">
+    <div class="input-field col s8">
+      <%= form.label "Escuela" %>
+      <%= form.text_field :school, id: :student_school %>
+    </div>
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender, id: :student_gender %>
+    <div class="input-field col s2" type="number">
+      <%= form.label "Grado" %>
+      <%= form.text_field :school_grade, id: :student_school_grade %>
+    </div>
+
+    <div class="input-field col s2">
+      <%= form.label "Nivel" %>
+      <%= form.text_field :school_level, id: :student_school_level %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :school %>
-    <%= form.text_field :school, id: :student_school %>
+  <div class="row">
+    <div class="checkbox col s2">
+      <%= form.check_box :active, id: :student_active %>
+      <%= form.label "Activo" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :school_grade %>
-    <%= form.text_field :school_grade, id: :student_school_grade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :school_level %>
-    <%= form.text_field :school_level, id: :student_school_level %>
-  </div>
-
-  <div class="field">
-    <%= form.label :birthday %>
-    <%= form.text_field :birthday, id: :student_birthday %>
-  </div>
-
-    <div class="field">
-    <%= form.label :active %>
-    <%= form.text_field :active, id: :student_birthday %>
-  </div>
-
   <h1>Tutor</h1>
  <%= render partial: "tutor_form", locals: { form: form, tutor: @student.build_tutor } %> 
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="btn waves-effect waves-light light-blue lighten-3 actions">
+    <%= form.submit "Agregar Estudiante" %>
   </div>
 <% end %>
