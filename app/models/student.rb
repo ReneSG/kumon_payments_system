@@ -1,5 +1,6 @@
 class Student < ApplicationRecord
   has_one :tutor
+  has_many :payments
 
   scope :active, -> { where(active: true) }
 

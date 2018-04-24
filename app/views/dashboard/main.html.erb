@@ -6,6 +6,7 @@
 <% @students.each do |student| %>
   <tr>
     <td><%= student.name %></td>
+    <td><%= link_to "Pagar", new_student_payment_path(student.id) %></td>
 </tr>
 <% end %>
 </table>
