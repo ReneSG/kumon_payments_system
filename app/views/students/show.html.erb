@@ -1,96 +1,73 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <h3 class="center">
+      <%= @student.name %>
+    </h3>
+    <div class="container col s12 m6">
+      <p>
+        <strong>Edad:</strong>
+        <%= @student.age %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @student.name %>
-</p>
+      <p>
+        <strong>Género:</strong>
+        <%= @student.gender %>
+      </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @student.age %>
-</p>
+      <p>
+        <strong>Escuela:</strong>
+        <%= @student.school %>
+      </p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @student.gender %>
-</p>
+      <p>
+        <strong>Grado:</strong>
+        <%= @student.school_grade %>
+      </p>
 
-<p>
-  <strong>School:</strong>
-  <%= @student.school %>
-</p>
+      <p>
+        <strong>Nivel:</strong>
+        <%= @student.school_level %>
+      </p>
 
-<p>
-  <strong>School grade:</strong>
-  <%= @student.school_grade %>
-</p>
+      <p>
+        <strong>Fecha de nacimiento:</strong>
+        <%= @student.birthday %>
+      </p>
 
-<p>
-  <strong>School level:</strong>
-  <%= @student.school_level %>
-</p>
+      <p>
+        <strong>Activo:</strong>
+        <% if @student.active %>
+          Si
+        <% else %>
+         No
+        <% end%>
+      </p>
+    </div>
+    <div class="container col s12 m6">
+      <h4>
+        <%= @student.tutor.relationship %>: <%= @student.tutor.name %>
+      </h4>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @student.birthday %>
-</p>
+      <p>
+        <strong>Email:</strong>
+        <%= @student.tutor.email %>
+      </p>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @student.active %>
-</p>
+      <p>
+        <strong>Teléfono:</strong>
+        <%= @student.tutor.phone %>
+      </p>
 
-<h1>Tutor</h1>
-<p>
-  <strong>Nombre:</strong>
-  <%= @student.tutor.name %>
-</p>
+      <p>
+        <strong>Dirección:</strong>
+        <%= @student.tutor.address_street %> <%= @student.tutor.address_number %>
+        <%= @student.tutor.address_suburb %> <%= @student.tutor.address_zipcode %>, <%= @student.tutor.address_town %>,
+        <%= @student.tutor.address_state %>
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>Relación:</strong>
-  <%= @student.tutor.relationship %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @student.tutor.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @student.tutor.phone %>
-</p>
-
-<p>
-  <strong>Calle:</strong>
-  <%= @student.tutor.address_street %>
-</p>
-
-<p>
-  <strong>Numero:</strong>
-  <%= @student.tutor.address_number %>
-</p>
-
-<p>
-  <strong>Colonia:</strong>
-  <%= @student.tutor.address_suburb %>
-</p>
-
-<p>
-  <strong>Codigo postal:</strong>
-  <%= @student.tutor.address_zipcode %>
-</p>
-
-<p>
-  <strong>Municipio:</strong>
-  <%= @student.tutor.address_town %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @student.tutor.address_street %>
-</p>
-
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+  <%= link_to 'Edit', edit_student_path(@student) %> |
+  <%= link_to 'Back', students_path %>
+</div>
