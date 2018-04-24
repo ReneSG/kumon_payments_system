@@ -5,9 +5,9 @@
       <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
       <ul>
-      <% student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% student.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -50,7 +50,11 @@
     </div>
   </div>
   <h1>Tutor</h1>
- <%= render partial: "tutor_form", locals: { form: form, tutor: @student.build_tutor } %> 
+  <% if @student.tutor %>
+    <%= render partial: "tutor_form", locals: { form: form, tutor: @student.tutor } %> 
+  <% else %>
+    <%= render partial: "tutor_form", locals: { form: form, tutor: @student.build_tutor } %> 
+  <% end %>
 
   <div class="btn waves-effect waves-light light-blue lighten-3 actions">
     <%= form.submit "Agregar Estudiante" %>

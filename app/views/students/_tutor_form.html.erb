@@ -1,5 +1,6 @@
 <%= form.fields_for :tutor_attributes, tutor do |builder| %>
   <div class="row">
+    <%= builder.hidden_field :id %>
     <div class="input-field col s8">
       <%= builder.label "Nombre" %>
       <%= builder.text_field :name %>
