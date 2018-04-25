@@ -1,30 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="container" style="margin-bottom:30px;">
+  <p id="notice"><%= notice %></p>
 
-<h1>Pagos de: <%= @student.name %></h1>
+  <h1>Pagos de: <%= @student.name %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Month</th>
-      <th>Amount</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @payments.each do |payment| %>
+  <table class="striped">
+    <thead>
       <tr>
-        <td><%= payment.month %></td>
-        <td><%= payment.amount %></td>
-        <td><%= payment.date %></td>
-        <td><%= link_to 'Show', student_payment_path(id: payment.id) %></td>
-        <td><%= link_to 'Edit', edit_student_payment_path(id: payment.id) %></td>
+        <th>Mes</th>
+        <th>Cantidad</th>
+        <th>Fecha</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @payments.each do |payment| %>
+        <tr>
+          <td><%= payment.month %></td>
+          <td>$<%= payment.amount %></td>
+          <td><%= payment.date %></td>
+          <td><%= link_to 'Editar', edit_student_payment_path(id: payment.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Payment', new_student_payment_path %>
+  <br>
+  <%= link_to 'Nuevo Pago', new_student_payment_path, class: "btn waves-effect waves-light light-blue lighten-3" %>
+  <br>
+  <br>
+  <%= link_to 'Regresar', @student %>
+</div>

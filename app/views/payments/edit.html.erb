@@ -1,6 +1,8 @@
-<h1>Editing Payment</h1>
+<div class="container">
+    <h1>Editar Pago</h1>
 
-<%= render 'form', payment: @payment %>
+    <%= render 'form', payment: @payment %>
 
-<%= link_to 'Show', student_payments_path(@payment.id) %> |
-<%= link_to 'Back', student_payment_path %>
+    <%= link_to 'Ver', student_payments_path(@payment.id) %> |
+    <%= link_to 'Regresar', student_payment_path %>
+</div>

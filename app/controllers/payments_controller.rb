@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
-  before_action :set_student, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_student, only: [:index, :create, :show, :edit, :update, :destroy]
 
   def index
     @payments = Payment.where(student_id: params["student_id"] )
@@ -21,7 +21,7 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to student_payments_path(@payment.id), notice: 'Payment was successfully created.' }
+        format.html { redirect_to student_payments_path(@student.id), notice: 'Payment was successfully created.' }
       else
         format.html { render :new }
       end

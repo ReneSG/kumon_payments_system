@@ -1,3 +1,4 @@
+<%= javascript_include_tag('form_student.js') %>
 <%= form_for @payment, url: student_payments_path do |form| %>
   <% if payment.errors.any? %>
     <div id="error_explanation">
@@ -11,22 +12,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :month %>
-    <%= form.select :month, options_for_select(PaymentsHelper::MONTHS, @payment.month), {include_blank: "Seleccionar"}, id: :payment_month %>
+  <div class="row">
+    <div class="input-field col s12 m4" type="number">
+      <%= form.label "Cantidad" %>
+      <%= form.text_field :amount, id: :payment_amount %>
+    </div>
+    <div class="field col s12 m4">
+      <%= form.label "Mes" %>
+      <%= form.select :month, options_for_select(PaymentsHelper::MONTHS, @payment.month), {include_blank: "Seleccionar"}, id: :payment_month %>
+    </div>
+    <div class="input-field col s12 m4">
+      <%= form.label "Fecha de pago" %>
+      <%= form.text_field :date, id: :payment_date, class: "datepicker"%>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount, id: :payment_amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, id: :payment_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row">
+    <div class="btn waves-effect waves-light light-blue lighten-3 actions">
+      <%= form.submit "Crear Pago" %>
+    </div>
   </div>
 <% end %>
