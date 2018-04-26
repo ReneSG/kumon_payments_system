@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20180424153548) do
 
   create_table "payments", force: :cascade do |t|
     t.string "month"
-    t.string "amount"
+    t.bigint "amount"
     t.date "date"
     t.integer "student_id"
     t.datetime "created_at", null: false
