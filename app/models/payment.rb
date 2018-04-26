@@ -1,4 +1,5 @@
 class Payment < ApplicationRecord
+  validates :month, :amount, :date, presence: true
 
   belongs_to :student
 

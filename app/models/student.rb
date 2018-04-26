@@ -1,4 +1,5 @@
 class Student < ApplicationRecord
+  validates :name, :gender, :school, :school_grade, :school_level, :birthday, presence: true
   has_one :tutor
   has_many :payments
 
