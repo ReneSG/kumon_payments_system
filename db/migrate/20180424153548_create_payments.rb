@@ -2,7 +2,7 @@ class CreatePayments < ActiveRecord::Migration[5.1]
   def change
     create_table :payments do |t|
       t.string :month
-      t.string :amount
+      t.bigint :amount
       t.date :date
       t.integer :student_id
 
