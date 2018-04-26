@@ -11,10 +11,12 @@
       </tr>
     </thead>
   <% @students.each do |student| %>
+    <% unless student.paid_current_month %>
     <tr>
       <td><h6><%= link_to student.name, student_payments_path(student.id) %></h6></td>
       <td class="center"><%= link_to "Pagar", new_student_payment_path(student.id), class: "btn waves-effect waves-light orange lighten-3" %></td>
   </tr>
+<% end %>
   <% end %>
   </table>
 </div>
