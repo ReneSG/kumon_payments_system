@@ -27,9 +27,9 @@
           <td><%= student.school_grade %></td>
           <td><%= student.school_level %></td>
           <td><%= student.birthday %></td>
-          <td><%= link_to 'Show', student %></td>
-          <td><%= link_to 'Edit', edit_student_path(student) %></td>
-          <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Ver', student %></td>
+          <td><%= link_to 'Editar', edit_student_path(student) %></td>
+          <td><%= link_to 'Borrar', student, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
         </tr>
       <% end %>
     </tbody>

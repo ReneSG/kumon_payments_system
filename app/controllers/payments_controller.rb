@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
-  before_action :set_student, only: [:index, :create, :show, :edit, :update, :destroy]
+  before_action :set_student, only: [:index, :create, :show, :edit, :update, :destroy, :new]
 
   def index
     @payments = Payment.where(student_id: params["student_id"] )

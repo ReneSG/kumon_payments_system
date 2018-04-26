@@ -1,12 +1,17 @@
-<table>
-  <tr>
-  <th>Nombre</th>
-  <th></th>
+<div class="container">
+<h2>Estudiantes sin Pagar</h2>
+  <table class="striped">
+    <thead>
+      <tr>
+      <th>Nombre</th>
+      <th></th>
+      </tr>
+    </thead>
+  <% @students.each do |student| %>
+    <tr>
+      <td><h6><%= link_to student.name, student_payments_path(student.id) %></h6></td>
+      <td class="center"><%= link_to "Pagar", new_student_payment_path(student.id), class: "btn waves-effect waves-light orange lighten-3" %></td>
   </tr>
-<% @students.each do |student| %>
-  <tr>
-    <td><%= student.name %></td>
-    <td><%= link_to "Pagar", new_student_payment_path(student.id) %></td>
-</tr>
-<% end %>
-</table>
+  <% end %>
+  </table>
+</div>
