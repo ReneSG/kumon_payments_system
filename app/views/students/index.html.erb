@@ -21,7 +21,7 @@
       <% @students.each do |student| %>
         <tr>
           <td><%= student.name %></td>
-          <td><%= student.age %></td>
+          <td><%= compute_age student.birthday %></td>
           <td><%= student.gender %></td>
           <td><%= student.school %></td>
           <td><%= student.school_grade %></td>
